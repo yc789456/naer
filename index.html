@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <link href="./css/reset.css" rel="stylesheet">
+    <link href="https://unpkg.com/swiper@7/swiper-bundle.min.css" rel="stylesheet">
+    <link href="./css/index.css" rel="stylesheet">
+
+</head>
+<body id="box">
+
+<div class="loading">
+    <img alt="" src="images/pic/bg-loading.png">
+    <div class="num-box">
+        <img alt="" src="images/pic/loading.png">
+        <span class="num"></span>
+
+    </div>
+</div>
+
+<!--擦除-->
+<canvas id="cas"></canvas>
+<div class="tips">
+    <div class="pr">
+        <img alt="" class="line" src="images/pic/line.png">
+        <img alt="" class="hand" src="images/pic/hand.png">
+    </div>
+
+    <div class="center text">
+        <p>擦除壁画</p>
+        <p>寻找神兽踪迹</p>
+    </div>
+</div>
+<!--帧动画-->
+<img alt="" id="monster" src="images/0.png">
+
+<div id="musicControl">
+    <a class="off" id="mc_play" onclick="play_music();">
+        <audio autoplay="autoplay" id="music" loop="loop">
+            <source src="images/lol.ogg" type="audio/mpeg">
+        </audio>
+    </a>
+</div>
+<div class="swiper">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide">
+            <img alt="" class="main-bg" src="./images/maimg.png">
+        </div>
+        <div class="swiper-slide slide2">
+            <div class="video-box">
+                <div class="video-content">
+                    <img alt="" src="images/playBtn.png">
+                    <p class="t1">英雄介绍视频</p>
+                    <p class="t2">Heroes Video</p>
+                </div>
+            </div>
+            <div class="desc">
+                虚空异界，瓦罗兰古代书籍中早有记载，形容为一片黑暗寂静一片荒芜的不毛之地，不过那里却存在着生物，且十分可怕与强大。虚空原本就是一个古老而悠远的神秘的文明，只不过生活的都是一些毛骨悚然的生物罢了。其中不乏有着卓越的智慧的生物，他们自称是虚空之主...
+            </div>
+            <div class="center">
+                <svg
+                        height="0.13rem"
+                        width="0.12rem"
+                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <path d="M1.591,2.930 L5.467,0.693 C5.988,0.393 6.631,0.393 7.152,0.693 L11.028,2.930 C11.550,3.231 11.871,3.787 11.871,4.388 L11.871,8.862 C11.871,9.463 11.550,10.019 11.028,10.320 L7.152,12.557 C6.631,12.857 5.988,12.857 5.467,12.557 L1.591,10.320 C1.069,10.019 0.748,9.463 0.748,8.862 L0.748,4.388 C0.748,3.787 1.069,3.231 1.591,2.930 Z"
+                          fill="rgb(0, 0, 0)" fill-rule="evenodd"
+                          opacity="0.729"/>
+                </svg>
+                <svg
+                        height="0.13rem"
+                        width="0.12rem"
+                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <path d="M1.591,2.930 L5.467,0.693 C5.988,0.393 6.631,0.393 7.152,0.693 L11.028,2.930 C11.550,3.231 11.871,3.787 11.871,4.388 L11.871,8.862 C11.871,9.463 11.550,10.019 11.028,10.320 L7.152,12.557 C6.631,12.857 5.988,12.857 5.467,12.557 L1.591,10.320 C1.069,10.019 0.748,9.463 0.748,8.862 L0.748,4.388 C0.748,3.787 1.069,3.231 1.591,2.930 Z"
+                          fill="rgb(0, 0, 0)" fill-rule="evenodd"
+                          opacity="0.729"/>
+                </svg>
+                <svg
+                        height="0.13rem"
+                        width="0.12rem"
+                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <path d="M1.591,2.930 L5.467,0.693 C5.988,0.393 6.631,0.393 7.152,0.693 L11.028,2.930 C11.550,3.231 11.871,3.787 11.871,4.388 L11.871,8.862 C11.871,9.463 11.550,10.019 11.028,10.320 L7.152,12.557 C6.631,12.857 5.988,12.857 5.467,12.557 L1.591,10.320 C1.069,10.019 0.748,9.463 0.748,8.862 L0.748,4.388 C0.748,3.787 1.069,3.231 1.591,2.930 Z"
+                          fill="rgb(255, 102, 0)" fill-rule="evenodd"
+                          opacity="1"/>
+                </svg>
+                <svg
+                        height="0.13rem"
+                        width="0.12rem"
+                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <path d="M1.591,2.930 L5.467,0.693 C5.988,0.393 6.631,0.393 7.152,0.693 L11.028,2.930 C11.550,3.231 11.871,3.787 11.871,4.388 L11.871,8.862 C11.871,9.463 11.550,10.019 11.028,10.320 L7.152,12.557 C6.631,12.857 5.988,12.857 5.467,12.557 L1.591,10.320 C1.069,10.019 0.748,9.463 0.748,8.862 L0.748,4.388 C0.748,3.787 1.069,3.231 1.591,2.930 Z"
+                          fill="rgb(0, 0, 0)" fill-rule="evenodd"
+                          opacity="0.729"/>
+                </svg>
+                <svg
+                        height="0.13rem"
+                        width="0.12rem"
+                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <path d="M1.591,2.930 L5.467,0.693 C5.988,0.393 6.631,0.393 7.152,0.693 L11.028,2.930 C11.550,3.231 11.871,3.787 11.871,4.388 L11.871,8.862 C11.871,9.463 11.550,10.019 11.028,10.320 L7.152,12.557 C6.631,12.857 5.988,12.857 5.467,12.557 L1.591,10.320 C1.069,10.019 0.748,9.463 0.748,8.862 L0.748,4.388 C0.748,3.787 1.069,3.231 1.591,2.930 Z"
+                          fill="rgb(0, 0, 0)" fill-rule="evenodd"
+                          opacity="0.729"/>
+                </svg>
+                <svg
+                        height="0.13rem"
+                        width="0.12rem"
+                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <path d="M1.591,2.930 L5.467,0.693 C5.988,0.393 6.631,0.393 7.152,0.693 L11.028,2.930 C11.550,3.231 11.871,3.787 11.871,4.388 L11.871,8.862 C11.871,9.463 11.550,10.019 11.028,10.320 L7.152,12.557 C6.631,12.857 5.988,12.857 5.467,12.557 L1.591,10.320 C1.069,10.019 0.748,9.463 0.748,8.862 L0.748,4.388 C0.748,3.787 1.069,3.231 1.591,2.930 Z"
+                          fill="rgb(0, 0, 0)" fill-rule="evenodd"
+                          opacity="0.729"/>
+                </svg>
+            </div>
+        </div>
+        <div class="swiper-slide slide3">
+            <div class="video-box2">
+                <div class="video-content">
+                    <img alt="" src="images/playBtn.png">
+                </div>
+            </div>
+            <div class="skill-box">
+                <div class="skill-top">
+                    <div>
+                        <div class="skill">
+                            <img alt="" src="images/skill/base-skill.png">
+                        </div>
+                        <div class="change-body">
+                            <img alt="" src="images/skill/bian.png">
+                            <span class="">变身</span>
+                        </div>
+                    </div>
+                    <div class="title">投掷回力镖</div>
+                </div>
+                <div class="text">布隆朝一个方向举起盾牌，持续数秒，可以拦截所 有敌方飞行道具，并将它们摧毁，但自身要承受这
+                    些飞行道具的伤害。在举盾后，布隆将使承受的第一次攻击变得无效，并降低来自这个方向的所有后续攻击伤害。
+                </div>
+                <ul class="skill-list">
+                    <li class="active">被动</li>
+                    <li data-name="Q技能">Q</li>
+                    <li data-name="W技能">W</li>
+                    <li data-name="E技能">E</li>
+                    <li data-name="R技能">R</li>
+                </ul>
+            </div>
+        </div>
+        <div class="swiper-slide slide4">
+            <div class="center buy-box">
+                <img alt="" src="./images/pic/buy.png">
+            </div>
+            <div class="center">
+                <svg
+                        height="0.14rem"
+                        width="0.12rem"
+                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <path d="M1.603,3.398 L5.480,1.161 C6.001,0.860 6.643,0.860 7.164,1.161 L11.041,3.398 C11.562,3.698 11.883,4.254 11.883,4.855 L11.883,9.329 C11.883,9.931 11.562,10.486 11.041,10.787 L7.164,13.024 C6.643,13.325 6.001,13.325 5.480,13.024 L1.603,10.787 C1.082,10.486 0.761,9.931 0.761,9.329 L0.761,4.855 C0.761,4.254 1.082,3.698 1.603,3.398 Z"
+                          fill="rgb(255, 102, 0)" fill-rule="evenodd"
+                          opacity="0.729"/>
+                </svg>
+                <svg
+                        height="0.14rem"
+                        width="0.12rem"
+                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <path d="M1.603,3.398 L5.480,1.161 C6.001,0.860 6.643,0.860 7.164,1.161 L11.041,3.398 C11.562,3.698 11.883,4.254 11.883,4.855 L11.883,9.329 C11.883,9.931 11.562,10.486 11.041,10.787 L7.164,13.024 C6.643,13.325 6.001,13.325 5.480,13.024 L1.603,10.787 C1.082,10.486 0.761,9.931 0.761,9.329 L0.761,4.855 C0.761,4.254 1.082,3.698 1.603,3.398 Z"
+                          fill="rgb(0, 0, 0)" fill-rule="evenodd"
+                          opacity="0.729"/>
+                </svg>
+            </div>
+
+            <div class="back"></div>
+            <div class="hero-box" style="display: none">
+                <div class="content">
+                    <div class="top">
+                        <span class="title">选择您要购买的商品</span>
+                        <img alt="" class="close" src="images/close.png">
+                    </div>
+                    <ul>
+                        <li>
+                            【英雄】弗雷尔卓德之心 布隆
+                        </li>
+                        <li>
+                            【皮肤】屠龙勇士 布隆
+                        </li>
+                        <li>
+                            【礼包】[英雄]弗雷尔卓德之心 布隆
+                            <p>[皮肤]屠龙勇士 布隆</p>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="center btn">
+                    <button>确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="top-icon-box" style="display: none">
+        <img alt="" class="top-icon" src="./images/jiantou.png">
+    </div>
+    <div class="bottom-icon-box">
+        <img alt="" class="bottom-icon" src="./images/jiantou.png">
+    </div>
+</div>
+
+<script src="./js/jquery-3.6.4.min.js"></script>
+<script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+<script src="./js/index.js"></script>
+
+</body>
+</html>
